@@ -1,45 +1,87 @@
 public class Main {
+    public static Employee[] employee = new Employee[10];
+
+    public static Employee findMinSalary(Employee[] list) {
+        int index = 0;
+        int min = list[0].getSalary();
+        for (int i = 1; i < list.length; i++) {
+            if (list[i].getSalary() < min) {
+                min = list[i].getSalary();
+                index = i;
+            }
+        }
+        return list[index];
+    }
+
+    public static Employee findMaxSalary(Employee[] list) {
+        int index = 0;
+        int min = list[0].getSalary();
+        for (int i = 1; i < list.length; i++) {
+            if (list[i].getSalary() > min) {
+                min = list[i].getSalary();
+                index = i;
+            }
+        }
+        return list[index];
+    }
+
+    public static int sumSalary(Employee[] list) {
+        int sum = 0;
+        for (Employee employee : list) {
+            sum += employee.getSalary();
+        }
+
+        return sum;
+
+    }
+
+    public static int averageSalary(Employee[] list) {
+        int average = 0;
+        for (Employee employee : list) {
+            average += employee.getSalary() / list.length;
+        }
+
+        return average;
+    }
+
+
+    public static void showEmployees(Employee[] list) {
+        for (Employee employee : list) {
+            System.out.println(employee);
+        }
+    }
+    public  static void printAllEmployeeNames(Employee[] list) {
+        for (Employee employee : list) {
+            System.out.println(employee.getName());
+        }
+    }
+
+
 
 
     public static void main(String[] args) {
 
-        Employee.employees[0] = new Employee("Иванов Иван Иванович1", 1, 10000);
-        Employee.employees[1] = new Employee("Иванов Иван Иванович2", 1, 20000);
-        Employee.employees[2] = new Employee("Иванов Иван Иванович3", 2, 30000);
-        Employee.employees[3] = new Employee("Иванов Иван Иванович4", 2, 40000);
-        Employee.employees[4] = new Employee("Иванов Иван Иванович5", 3, 50000);
-        Employee.employees[5] = new Employee("Иванов Иван Иванович6", 3, 60000);
-        Employee.employees[6] = new Employee("Иванов Иван Иванович7", 4, 70000);
-        Employee.employees[7] = new Employee("Иванов Иван Иванович8", 4, 80000);
-        Employee.employees[8] = new Employee("Иванов Иван Иванович9", 5, 90000);
-        Employee.employees[9] = new Employee("Иванов Иван Иванович10", 5, 100000);
-        System.out.println();
-        Employee.showEmployees();
+
+        employee[0] = new Employee("Иванов Иван Иванович1", 1, 10000);
+        employee[1] = new Employee("Иванов Иван Иванович2", 1, 20000);
+        employee[2] = new Employee("Иванов Иван Иванович3", 2, 30000);
+        employee[3] = new Employee("Иванов Иван Иванович4", 2, 40000);
+        employee[4] = new Employee("Иванов Иван Иванович5", 3, 50000);
+        employee[5] = new Employee("Иванов Иван Иванович6", 3, 60000);
+        employee[6] = new Employee("Иванов Иван Иванович7", 4, 70000);
+        employee[7] = new Employee("Иванов Иван Иванович8", 4, 80000);
+        employee[8] = new Employee("Иванов Иван Иванович9", 5, 90000);
+        employee[9] = new Employee("Иванов Иван Иванович10", 5, 100000);
+        showEmployees(employee);
+        printAllEmployeeNames(employee);
+        System.out.println("Cумма затрат на зарплаты в месяц: " + sumSalary(employee));
+        System.out.println("Cотрудник с минимальной зарплатой: " + findMinSalary(employee));
+        System.out.println("Cотрудник с максимальной зарплатой: " + findMaxSalary(employee));
+        System.out.println("Среднее значение зарплаты: " + averageSalary(employee));
 
 
-        double sumSalary = Employee.sumSalary();// Сумма затрат на зарплаты в месяц
-        System.out.println("Сумма затрат на зарплаты в месяц: " + sumSalary);
 
 
-        Employee minSalaryEmployee = Employee.findMinSalary();// Сотрудник с минимальной зарплатой
-        System.out.println("Сотрудник с минимальной зарплатой: " + minSalaryEmployee);
 
-
-        Employee maxSalaryEmployee = Employee.findMaxSalary();// Сотрудник с максимальной зарплатой
-        System.out.println("Сотрудник с максимальной зарплатой: " + maxSalaryEmployee);
-
-
-        double averageSalary = Employee.averageSalary();// Среднее значение зарплат
-        System.out.println("Среднее значение зарплат: " + averageSalary);
-
-
-        // Ф. И. О. всех сотрудников
-        String[] employeesFullNames = Employee.printAllEmployeeNames();
-        System.out.println("Ф. И. О. всех сотрудников: ");
-        for (String fullName : employeesFullNames) {
-            System.out.println(fullName);
-
-
-        }
     }
 }
