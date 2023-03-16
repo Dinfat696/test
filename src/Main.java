@@ -1,4 +1,6 @@
 public class Main {
+    public static Employee[] employee = new Employee[10];
+
     public static Employee findMinSalary(Employee[] list) {
         int index = 0;
         int min = list[0].getSalary();
@@ -36,7 +38,7 @@ public class Main {
     public static int averageSalary(Employee[] list) {
         int average = 0;
         for (Employee employee : list) {
-            average += employee.getSalary() / 10;
+            average += employee.getSalary() / list.length;
         }
 
         return average;
@@ -51,14 +53,15 @@ public class Main {
     public  static void printAllEmployeeNames(Employee[] list) {
         for (Employee employee : list) {
             System.out.println(employee.getName());
-            }
         }
+    }
 
 
 
 
     public static void main(String[] args) {
-        Employee[] employee = new Employee[10];
+
+
         employee[0] = new Employee("Иванов Иван Иванович1", 1, 10000);
         employee[1] = new Employee("Иванов Иван Иванович2", 1, 20000);
         employee[2] = new Employee("Иванов Иван Иванович3", 2, 30000);
@@ -82,4 +85,3 @@ public class Main {
 
     }
 }
-

@@ -1,7 +1,7 @@
 public class Employee {
     private static int idCounter = 0;
-    private int id;
-    private String Name;
+    private final int id;
+    private final String Name;
 
     private int department;
     private int salary;
@@ -20,7 +20,6 @@ public class Employee {
     public String getName() {
         return Name;
     }
-
 
 
     public int getDepartment() {
